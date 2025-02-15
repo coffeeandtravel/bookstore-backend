@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 const cors = require('cors')
 const mongoose = require('mongoose')
@@ -7,7 +9,7 @@ const bookRoutes = require('./Routes/Books.routes')
 const app = express();
 const port = process.env.PORT||3000;
 
-const uri = "mongodb+srv://test:test@trial.bgzr6.mongodb.net/bookInventory?retryWrites=true&w=majority";
+const uri = process.env.MONGO_URI;
 
 app.use(cors());
 app.use(express.json());
